@@ -1,0 +1,54 @@
+[bootstrap.apt.sources.crowdsec]
+uris = "https://packagecloud.io/crowdsec/crowdsec/any/"
+suites = "any"
+components = "main"
+key = "https://packagecloud.io/crowdsec/crowdsec/gpgkey"
+fingerprint = "C358C5638A13ACC3A665A9419EB2753BF09DFB77"
+
+[bootstrap.packages]
+"apt:git" = "latest"
+"apt:curl" = "latest"
+"apt:zsh" = "latest"
+"apt:podman" = "latest"
+"apt:qemu-system-x86" = "latest"
+"apt:virtiofsd" = "latest"
+"apt:crowdsec" = "latest"
+"apt:crowdsec-firewall-bouncer-iptables" = "latest"
+
+[bootstrap.services.crowdsec]
+state = "running"
+enabled = true
+
+[bootstrap.services.crowdsec-firewall-bouncer]
+state = "running"
+enabled = true
+
+[tasks.bootstrap]
+description = "Root shell, then global Bun, Claude Code and ripgrep"
+run = [
+  "usermod -s /usr/bin/zsh root",
+  '"$HOME/.local/bin/mise" use -g bun@latest claude@latest ripgrep@latest',
+]
+
+[bootstrap.repos]
+"~/.oh-my-zsh" = { url = "https://github.com/ohmyzsh/ohmyzsh.git", depth = 1 }
+
+[bootstrap.files."~/.zshrc"]
+content = """
+export PATH="$HOME/.local/bin:$PATH"
+eval "$(mise activate zsh)"
+export ZSH="$HOME/.oh-my-zsh"
+ZSH_THEME="robbyrussell"
+plugins=(git)
+source $ZSH/oh-my-zsh.sh
+"""
+
+[bootstrap.files."/etc/motd"]
+state = "absent"
+
+[bootstrap.files."/etc/update-motd.d/10-uname"]
+mode = "0644"
+
+[bootstrap.files."/etc/update-motd.d/10-koala"]
+source = "./files/10-koala"
+mode = "0755"
