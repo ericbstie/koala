@@ -27,6 +27,7 @@ enabled = true
 description = "Root shell, then global Bun, Claude Code and ripgrep"
 run = [
   "usermod -s /usr/bin/zsh root",
+  "sshd -t && systemctl reload ssh",
   '"$HOME/.local/bin/mise" use -g bun@latest claude@latest ripgrep@latest',
 ]
 
@@ -56,3 +57,8 @@ mode = "0644"
 [bootstrap.files."/etc/update-motd.d/10-koala"]
 source = "./files/10-koala"
 mode = "0755"
+
+[bootstrap.files."/etc/ssh/sshd_config.d/10-koala.conf"]
+content = """
+PrintLastLog no
+"""
