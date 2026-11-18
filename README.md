@@ -1,6 +1,14 @@
 ![koala](koala.png)
 
-This sets up my Debian server "koala" from a fresh install: it adds CrowdSec to block known attackers, makes zsh with Oh My Zsh the login shell, and installs Podman, Bun, Claude Code and ripgrep. It also replaces the login banner with a koala, and everything is described in one config file so the same server can be rebuilt any time.
+- CrowdSec with the iptables firewall bouncer, from the CrowdSec apt repository
+- Console enrollment for CrowdSec (`mise run setup-machine`)
+- mise, activated in zsh
+- zsh as root's login shell, with Oh My Zsh
+- Podman, with QEMU and virtiofsd
+- Bun, Claude Code and ripgrep, installed globally
+- git and curl
+- koala login banner, replacing the default
+- SSH last-login message turned off
 
 ```sh
 apt update && apt install -y git curl ca-certificates
