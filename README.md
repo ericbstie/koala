@@ -1,14 +1,6 @@
 ![koala](koala.png)
 
-- CrowdSec with the iptables firewall bouncer, from the CrowdSec apt repository
-- Console enrollment for CrowdSec (`mise run setup-machine`)
-- mise, activated in zsh
-- zsh as root's login shell, with Oh My Zsh
-- Podman, with QEMU and virtiofsd
-- Bun, Claude Code and ripgrep, installed globally
-- git and curl
-- koala login banner, replacing the default
-- SSH last-login message turned off
+Server configuration files for first time setups.
 
 ```sh
 apt update && apt install -y git curl ca-certificates
@@ -18,3 +10,15 @@ cd ~/koala
 ~/.local/bin/mise trust
 ~/.local/bin/mise bootstrap --yes
 ```
+
+## What is set up
+
+- CrowdSec with the iptables firewall bouncer, from the CrowdSec apt repository
+- Console enrollment for CrowdSec (`mise run setup-machine`)
+- mise, activated in zsh
+- zsh as root's login shell, with Oh My Zsh
+- Podman, with QEMU and virtiofsd
+- Bun, Claude Code and ripgrep, installed globally
+- git and curl
+- koala login banner, replacing the default
+- SSH last-login message turned off
