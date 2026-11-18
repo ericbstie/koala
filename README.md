@@ -5,5 +5,8 @@ This sets up my Debian server "koala" from a fresh install: it adds CrowdSec to 
 ```sh
 apt update && apt install -y git curl ca-certificates
 curl -fsSL https://mise.run | sh
-~/.local/bin/mise bootstrap --from https://github.com/ericbstie/koala.git --yes
+git clone https://github.com/ericbstie/koala.git ~/koala
+cd ~/koala
+~/.local/bin/mise trust
+~/.local/bin/mise bootstrap --yes
 ```
