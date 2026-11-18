@@ -30,6 +30,10 @@ run = [
   '"$HOME/.local/bin/mise" use -g bun@latest claude@latest ripgrep@latest',
 ]
 
+[tasks.setup-machine]
+description = "Enroll CrowdSec in the console (opens an approval link)"
+run = "cscli console enroll --quick"
+
 [bootstrap.repos]
 "~/.oh-my-zsh" = { url = "https://github.com/ohmyzsh/ohmyzsh.git", depth = 1 }
 
