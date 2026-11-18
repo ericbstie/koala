@@ -1,3 +1,9 @@
 # koala
 
-Bootstrap for my Debian 13 server `koala`: CrowdSec with the firewall bouncer, zsh with Oh My Zsh, Podman, Bun, Claude Code, ripgrep and a custom login banner, all set up by `mise bootstrap`. On a fresh machine, install git, curl and mise, then run `mise bootstrap --from https://github.com/ericbstie/koala.git --yes`.
+This sets up my Debian server "koala" from a fresh install: it adds CrowdSec to block known attackers, makes zsh with Oh My Zsh the login shell, and installs Podman, Bun, Claude Code and ripgrep. It also replaces the login banner with a koala, and everything is described in one config file so the same server can be rebuilt any time.
+
+```sh
+apt update && apt install -y git curl ca-certificates
+curl -fsSL https://mise.run | sh
+~/.local/bin/mise bootstrap --from https://github.com/ericbstie/koala.git --yes
+```
