@@ -3,7 +3,7 @@ uris = "https://packagecloud.io/crowdsec/crowdsec/any/"
 suites = "any"
 components = "main"
 key = "https://packagecloud.io/crowdsec/crowdsec/gpgkey"
-fingerprint = "C358C5638A13ACC3A665A9419EB2753BF09DFB77"
+fingerprint = "6A89E3C2303A901A889971D3376ED5326E93CD0C"
 
 [bootstrap.packages]
 "apt:git" = "latest"
